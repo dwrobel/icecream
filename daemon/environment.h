@@ -29,7 +29,7 @@
 #include <unistd.h>
 
 class MsgChannel;
-extern bool cleanup_cache(const std::string &basedir, uid_t user_uid, gid_t user_gid);
+extern bool cleanup_cache(const std::string &basedir);
 extern int start_create_env(const std::string &basedir,
                             uid_t user_uid, gid_t user_gid,
                             const std::string &compiler, const std::list<std::string> &extrafiles,

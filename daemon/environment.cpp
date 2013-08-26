@@ -162,7 +162,7 @@ static bool cleanup_directory(const string &directory)
     return true;
 }
 
-bool cleanup_cache(const string &basedir, uid_t user_uid, gid_t user_gid)
+bool cleanup_cache(const string &basedir)
 {
     flush_debug();
 
@@ -178,11 +178,6 @@ bool cleanup_cache(const string &basedir, uid_t user_uid, gid_t user_gid)
             log_perror("mkdir in cleanup_cache() failed") << "\t" << basedir << endl;
         }
 
-        return false;
-    }
-
-    if (chown(basedir.c_str(), user_uid, user_gid) || chmod(basedir.c_str(), 0775)) {
-        log_perror("chown/chmod in cleanup_cache() failed") << "\t" << basedir << endl;;
         return false;
     }
 

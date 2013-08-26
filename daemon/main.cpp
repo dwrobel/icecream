@@ -2590,7 +2590,7 @@ int main(int argc, char **argv)
     pidFile << dcc_master_pid << endl;
     pidFile.close();
 
-    if (!cleanup_cache(d.envbasedir, d.user_uid, d.user_gid)) {
+    if (!cleanup_cache(d.envbasedir)) {
         return 1;
     }
 
