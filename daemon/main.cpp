@@ -2492,10 +2492,6 @@ int main(int argc, char **argv)
             logfile = "/var/log/icecc/iceccd.log";
         }
 
-        mkdir("/var/run/icecc", S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        chmod("/var/run/icecc", S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
-        ignore_result(chown("/var/run/icecc", d.user_uid, d.user_gid));
-
 #ifdef HAVE_LIBCAP_NG
         capng_clear(CAPNG_SELECT_BOTH);
         capng_update(CAPNG_ADD, (capng_type_t)(CAPNG_EFFECTIVE | CAPNG_PERMITTED), CAP_SYS_CHROOT);
