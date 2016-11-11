@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/bash
 # icecc -- A simple distributed compiler system
 #
 # Copyright (C) 2004 by the Icecream Authors
