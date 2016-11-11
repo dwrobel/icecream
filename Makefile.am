@@ -8,7 +8,6 @@ SUBDIRS = \
 	daemon \
 	client \
 	doc \
-	suse \
 	compilerwrapper \
 	scheduler \
 	tests \
