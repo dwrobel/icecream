@@ -216,7 +216,6 @@ int work_it(CompileJob &j, unsigned int job_stat[], MsgChannel *client, CompileR
         int argc = list.size();
         argc++; // the program
         argc += 6; // -x c - -o file.o -fpreprocessed
-        argc += 4; // gpc parameters
         argc += 9; // clang extra flags
         char **argv = new char*[argc + 1];
         int i = 0;
@@ -284,15 +283,6 @@ int work_it(CompileJob &j, unsigned int job_stat[], MsgChannel *client, CompileR
         argv[i++] = strdup("-");
         argv[i++] = strdup("-o");
         argv[i++] = strdup(file_name.c_str());
-
-        if (!clang) {
-            argv[i++] = strdup("--param");
-            sprintf(buffer, "ggc-min-expand=%d", ggc_min_expand_heuristic(mem_limit));
-            argv[i++] = strdup(buffer);
-            argv[i++] = strdup("--param");
-            sprintf(buffer, "ggc-min-heapsize=%d", ggc_min_heapsize_heuristic(mem_limit));
-            argv[i++] = strdup(buffer);
-        }
 
         if (clang) {
             argv[i++] = strdup("-no-canonical-prefixes");    // otherwise clang tries to access /proc/self/exe

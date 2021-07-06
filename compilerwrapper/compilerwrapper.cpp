@@ -110,15 +110,6 @@ int main(int argc, char *argv[])
                 continue;    // clang doesn't know this (it presumably needs to always preprocess anyway)
             }
 
-            if (strcmp(argv[i], "--param") == 0 && i + 1 < argc) {
-                if (strncmp(argv[i + 1], "ggc-min-expand=", strlen("ggc-min-expand=")) == 0
-                        || strncmp(argv[i + 1], "ggc-min-heapsize=", strlen("ggc-min-heapsize=")) == 0) {
-                    // drop --param and the parameter itself
-                    ++i;
-                    continue;
-                }
-            }
-
             if (i == x_arg_pos) {
                 ++i; // skip following
                 continue; // and skip this one
